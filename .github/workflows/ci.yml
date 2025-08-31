@@ -29,11 +29,10 @@ jobs:
     # Add your solution below this line
     needs: sync
     runs-on: ubuntu-latest
-    #if: ${{needs.sync.outputs.state == 'halt'}}
+    if: ${{needs.sync.outputs.state == 'run'}}
     steps:
       - name: Run test suite
         run: |
           echo "Running tests..."
-          echo ${{needs.sync.outputs.state}}
           sleep 5 # Simulate running tests
           exit 0
